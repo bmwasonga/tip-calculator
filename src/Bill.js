@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { tips } from './data';
 
 export default function Bill() {
+  const [appState, setState] = useState({
+    activeObject: [0],
+    tips,
+  });
+
+  const handleActive = (id) => {
+    setState({ ...appState, activeObject: appState.tips[id] });
+  };
+
+  const toggleActive = (id) => {
+    if (appState.tips[id] === appState.activeObject) {
+      return 'focus:outline-none focus-visible:ring-2 focus-visible:ring-white';
+    } else {
+      return null;
+    }
+  };
+
   return (
     <div className="bg-white p-3">
       <h2 className="text-darkGrayCyan m-2">Bill</h2>
@@ -22,11 +39,14 @@ export default function Bill() {
           return (
             <p
               key={id}
-              className="m-2 p-2 bg-veryDarkcyan text-white rounded
-              cursor-pointer hover:bg-strongCyan hover:text-veryDarkcyan active:bg-strongCyan 
-              active:text-veryDarkcyan"
+              className={`${toggleActive(
+                id - 1
+              )} m-2 p-2 bg-veryDarkcyan text-white rounded cursor-pointer hover:bg-strongCyan hover:text-veryDarkcyan`}
+              onClick={() => {
+                handleActive(id - 1);
+              }}
             >
-              {percent}
+              {percent}%
             </p>
           );
         })}

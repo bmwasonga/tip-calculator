@@ -17,6 +17,7 @@ module.exports = {
       screens: {
         desk: '768px',
       },
+      backgroundColor: ['active'],
     },
   },
   variants: {
