@@ -1,7 +1,12 @@
+const { default: Calc } = require('./Calc');
+
 function App() {
   return (
-    <div className="lg:bg-veryDarkcyan sm:bg-darkGrayCyan">
-      <h1>Tailwind Lets do this</h1>
+    <div className="bg-lightGrayCyan desk:h-screen h-screen flex justify-center flex-col items-center font-mono">
+      <h1 className="uppercase tracking-widest font-mono font-bold text-veryDarkcyan">
+        SPLITTER
+      </h1>
+      <Calc />
     </div>
   );
 }
