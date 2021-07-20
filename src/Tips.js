@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Tips() {
   return (
-    <div className="bg-veryDarkcyan rounded-xl p-5">
+    <div className="bg-veryDarkcyan rounded-xl p-5 relative h-full w-full">
       <div className=" grid grid-cols-2 gap-1">
         <div className="">
           <h3 className="text-white">Tip Amount</h3>
@@ -25,7 +25,8 @@ export default function Tips() {
 
       <button
         name="button"
-        className="bg-strongCyan w-10/12 p-1 rounded text-veryDarkcyan"
+        className="bg-strongCyan hover:opacity-75 w-10/12 p-2 rounded absolute 
+        desk:inset-x-6 desk:bottom-6 inset-x-12  bottom-7 text-veryDarkcyan"
       >
         RESET
       </button>
