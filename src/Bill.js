@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { tips } from './data';
+import dollar from './images/icon-dollar.svg';
+import person from './images/icon-person.svg';
 
 export default function Bill() {
   const [appState, setState] = useState({
     activeObject: [0],
     tips,
   });
+
+  // const [clicked, setClicked] = useState(false);
 
   const handleActive = (id) => {
     setState({ ...appState, activeObject: appState.tips[id] });
@@ -22,14 +26,19 @@ export default function Bill() {
   return (
     <div className="bg-white p-3">
       <h2 className="text-darkGrayCyan m-2">Bill</h2>
-      <input
-        type="text"
-        className="bg-lightGrayCyan2
+      <div className="relative">
+        <img
+          src={dollar}
+          alt="dollar"
+          className="absolute inset-x-2 bottom-3"
+        />
+        <input
+          type="text"
+          className="bg-lightGrayCyan2
       text-veryDarkcyan font-medium p-2 rounded w-full
-      focus:outline-none focus:ring-2 focus:ring-strongCyan focus:border-transparent
-      "
-        placeholder="$"
-      />
+      focus:outline-none focus:ring-2 focus:ring-strongCyan focus:border-transparent text-right"
+        />
+      </div>
 
       {/* Change the input type */}
       <h2 className="text-darkGrayCyan m-2">Select Tip %</h2>
@@ -55,15 +64,22 @@ export default function Bill() {
         </div>
       </div>
       <h2 className="text-darkGrayCyan m-2">Number of People</h2>
-      <input
-        type="text"
-        className="bg-lightGrayCyan2
-      text-veryDarkcyan font-medium p-2 rounded w-full
-      focus:outline-none focus:ring-2 focus:ring-strongCyan focus:border-transparent
+      <div className="relative ">
+        <img
+          src={person}
+          alt="person"
+          className="absolute inset-x-2 bottom-3 "
+        />
 
+        <input
+          type="text"
+          className="bg-lightGrayCyan2
+        text-veryDarkcyan font-medium p-2 rounded w-full
+          focus:outline-none focus:ring-2 focus:ring-strongCyan focus:border-transparent text-right
       "
-        placeholder="$"
-      />
+          placeholder="0"
+        />
+      </div>
     </div>
   );
 }
