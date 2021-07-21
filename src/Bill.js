@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import { tips } from './data';
 import dollar from './images/icon-dollar.svg';
 import person from './images/icon-person.svg';
@@ -9,7 +9,9 @@ export default function Bill() {
     tips,
   });
 
-  // const [clicked, setClicked] = useState(false);
+  const [bill, setBill] = useState(0);
+  const [people, setPeople] = useState(1);
+  const [showCustom, setShowCustom] = useState(false);
 
   const handleActive = (id) => {
     setState({ ...appState, activeObject: appState.tips[id] });
@@ -37,10 +39,13 @@ export default function Bill() {
           className="bg-lightGrayCyan2
       text-veryDarkcyan font-medium p-2 rounded w-full
       focus:outline-none focus:ring-2 focus:ring-strongCyan focus:border-transparent text-right"
+          value={bill}
+          onChange={(e) => {
+            setBill(e.target.value);
+          }}
         />
       </div>
 
-      {/* Change the input type */}
       <h2 className="text-darkGrayCyan m-2">Select Tip %</h2>
       <div className="grid desk:grid-cols-3 grid-cols-2 text-center m-2">
         {tips.map((tip) => {
@@ -59,8 +64,25 @@ export default function Bill() {
             </p>
           );
         })}
-        <div className="bg-lightGrayCyan2 flex justify-center items-center cursor-pointer">
-          <p>Custom</p>
+        <div className="bg-lightGrayCyan2 flex justify-center items-center cursor-pointer bg-contain">
+          <p onClick={() => setShowCustom(!showCustom)}>
+            {!showCustom ? (
+              <p>Custom</p>
+            ) : (
+              <input
+                type="text"
+                className="bg-lightGrayCyan2
+        text-veryDarkcyan font-medium p-2 rounded w-full
+          focus:outline-none focus:ring-2 focus:ring-strongCyan focus:border-transparent text-right
+      "
+                placeholder="1"
+                value={people}
+                onChange={(e) => {
+                  setPeople(e.target.value);
+                }}
+              />
+            )}
+          </p>
         </div>
       </div>
       <h2 className="text-darkGrayCyan m-2">Number of People</h2>
@@ -77,7 +99,11 @@ export default function Bill() {
         text-veryDarkcyan font-medium p-2 rounded w-full
           focus:outline-none focus:ring-2 focus:ring-strongCyan focus:border-transparent text-right
       "
-          placeholder="0"
+          placeholder="1"
+          value={people}
+          onChange={(e) => {
+            setPeople(e.target.value);
+          }}
         />
       </div>
     </div>

@@ -1,25 +1,27 @@
-import React from 'react';
+import React, { createContext } from 'react';
+
+export const AppContext = createContext();
 
 export default function Tips() {
   return (
     <div className="bg-veryDarkcyan rounded-xl p-5 relative h-full w-full">
-      <div className=" grid grid-cols-2 gap-1">
-        <div className="">
+      <div className=" grid grid-cols-2 gap-1 ">
+        <div className="my-2">
           <h3 className="text-white">Tip Amount</h3>
           <span className="text-darkGrayCyan ">/ person</span>
         </div>
         <div className="">
-          <h1 className="text-strongCyan text-right">$4.27</h1>
+          <h1 className="text-strongCyan text-right text-4xl">$4.27</h1>
         </div>
       </div>
 
       <div className=" grid grid-cols-2 gap-1">
-        <div className="">
+        <div className="my-2">
           <h3 className="text-white">Total</h3>
           <span className="text-darkGrayCyan">/ person</span>
         </div>
         <div className="">
-          <h1 className="text-strongCyan text-right">$32.79</h1>
+          <h1 className="text-strongCyan text-right text-4xl">$32.79</h1>
         </div>
       </div>
 
