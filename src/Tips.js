@@ -11,7 +11,9 @@ export default function Tips() {
           <span className="text-darkGrayCyan ">/ person</span>
         </div>
         <div className="">
-          <h1 className="text-strongCyan text-right text-4xl">$4.27</h1>
+          <h1 className="text-strongCyan text-right text-4xl font-mono font-extrabold">
+            $4.270
+          </h1>
         </div>
       </div>
 
@@ -21,7 +23,9 @@ export default function Tips() {
           <span className="text-darkGrayCyan">/ person</span>
         </div>
         <div className="">
-          <h1 className="text-strongCyan text-right text-4xl">$32.79</h1>
+          <h1 className="text-strongCyan text-right text-4xl font-extrabold">
+            $32.79
+          </h1>
         </div>
       </div>
 

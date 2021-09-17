@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Space Mono', 'monospace'],
+        mono: ['Space Mono', 'monospace'],
       },
       colors: {
         strongCyan: 'hsl(172, 67%, 45%)',
